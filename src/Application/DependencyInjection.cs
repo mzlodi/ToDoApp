@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using ToDoApp.Application.Common.Behaviours;
+using ToDoApp.Application.TodoItems.Commands.CreateTodoItem;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ public static class DependencyInjection
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddValidatorsFromAssemblyContaining<CreateTodoItemCommandValidator>();
 
         services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());

@@ -5,6 +5,7 @@ public class CreateTodoItemCommandValidator : AbstractValidator<CreateTodoItemCo
     public CreateTodoItemCommandValidator()
     {
         RuleFor(v => v.Title)
+            .NotEmpty().WithMessage("Title cannot be empty.")
             .MaximumLength(200);
     }
 }
